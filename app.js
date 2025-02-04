@@ -1,26 +1,30 @@
+//Array para guardar os nomes dos amigos
 let listaDeAmigos = [];
-let amigo;
-let nomeDoAmigoOculto;
 
 
-function adicionarAmigo(){
-    
-    amigo = document.getElementById('amigo').value;
-    
+
+
+// Função para adicionar um amigo à lista
+ 
+function adicionarAmigo() {
+    // Obtém o valor digitado no input
+    let inputAmigo = document.getElementById('amigo');
+    let amigo = inputAmigo.value.trim(); // Remove espaços extras antes e depois do nome
+
+    // Verifica se o campo está vazio
+    if (amigo === "") {
+        alert("Digite um nome válido!");
+        return; // Sai da função se o nome for inválido
+    }
+
+    // Adiciona o nome à lista de amigos
     listaDeAmigos.push(amigo);
     
-    (document.getElementById('amigo').value = '') ;
-    
-    return console.log(listaDeAmigos) ;
+    // Limpa o campo de entrada após adicionar o nome
+    inputAmigo.value = '';
+
+   
 }
-//function nomeEmDuplicata(){
-    //if(listaDeAmigos.includes(amigo)){
-        
-        //console.log('O amigo já está nalista, digite o nome de outro amigo');
-        
-        //listaDeAmigos.pop(amigo);
-    //} 
-//}
 
 
 
