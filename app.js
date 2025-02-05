@@ -40,13 +40,28 @@ function atualizarLista() {
     }
 }
 
+function sortearAmigo() {
+    //Se alista de amigos não tiver pelo menos dois amigos...mensagem de erro
+    if (listaDeAmigos.length < 2) {
+        alert("Adicione pelo menos dois amigos para o sorteio!"); 
+        return;
+    }
 
+    // Usando for para percorrer e escolher um nome aleatório
+    let indiceSorteado = Math.floor(Math.random() * listaDeAmigos.length);
+    let sorteado;
 
+    for (let i = 0; i < listaDeAmigos.length; i++) {
+        if (i === indiceSorteado) {
+            sorteado = listaDeAmigos[i];
+            break;
+        }
+    }
 
-function sortearAmigo(){
-    sorteado = listaDeAmigos[Math.floor(Math.random() * listaDeAmigos.length)];
-    document.getElementById('amigo').value = sorteado;
-    console.log(sorteado);
+    document.getElementById('resultado').textContent = `O seu amigo oculto é: ${sorteado}`;
 }
+
+
+
 
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
