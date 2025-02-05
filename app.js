@@ -1,9 +1,6 @@
 //Array para guardar os nomes dos amigos
 let listaDeAmigos = [];
 
-
-
-
 // Função para adicionar um amigo à lista
  
 function adicionarAmigo() {
