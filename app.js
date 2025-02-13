@@ -12,6 +12,11 @@ function adicionarAmigo() {
     if (amigo === "") {
         alert("Digite um nome válido!");
         return; // Sai da função se o nome for inválido
+    }else if (listaDeAmigos.includes(amigo)) //depois o segundo caso de invalido
+    {
+        alert("Nome informado já está na sua lista");
+        limparCampo();
+        return;
     }
 
     // Adiciona o nome à lista de amigos
@@ -23,6 +28,7 @@ function adicionarAmigo() {
   // Atualiza a exibição da lista de amigos na tela
     atualizarLista();   
 }
+
  // Função para atualizar a lista de amigos na interface do usuário
  
 function atualizarLista() {
@@ -38,6 +44,10 @@ function atualizarLista() {
         li.textContent = listaDeAmigos[i]; // Define o texto do <li> com o nome do amigo
         listaElemento.appendChild(li); // Adiciona o <li> à lista no HTML
     }
+}
+function limparCampo(){
+    amigo = document.getElementById('amigo');
+    amigo.value = '';
 }
 
 function sortearAmigo() {
