@@ -11,7 +11,7 @@ function adicionarAmigo() {
     
     if (amigo === "") {
         alert("Digite um nome válido!");
-        return; // Sai da função se o nome for inválido
+        return; 
     }else if (listaDeAmigos.includes(amigo)) 
     {
         alert("Nome informado já está na sua lista");
