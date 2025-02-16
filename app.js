@@ -10,11 +10,11 @@ function adicionarAmigo() {
 
     
     if (amigo === "") {
-        alert("Digite um nome válido!");
+        exibirMensagemNomeInvalido();
         return; 
     }else if (listaDeAmigos.includes(amigo)) 
     {
-        alert("Nome informado já está na sua lista");
+        exibirNomeEstaNaLista();
         limparCampo();
         return;
     }
@@ -29,6 +29,28 @@ function adicionarAmigo() {
     atualizarLista();   
 }
 
+function exibirTextoNaTela(tag, texto){
+    let campo = document.getElementById('amigo');
+    campo.innerHTML = texto;
+    if ('speechSynthesis' in window) {
+        let utterance = new SpeechSynthesisUtterance(texto);
+        utterance.lang = 'pt-BR'; 
+        utterance.rate = 1.2; 
+        window.speechSynthesis.speak(utterance); 
+    } else {
+        console.log("Web Speech API não suportada neste navegador.");
+    }
+}
+
+function exibirMensagemNomeInvalido(){
+    exibirTextoNaTela('h2','Digite um nome válido, por favor!');
+}
+function exibirNomeEstaNaLista(){
+    exibirTextoNaTela('h2','O nome já está na lista, por favor digite outro nome!');
+}
+function peloMenosDois(){
+    exibirTextoNaTela('h2','Adicione pelo menos dois amigos para o sorteio!, por favor digite outro nome!');
+}
  
  
 function atualizarLista() {
@@ -53,7 +75,7 @@ function limparCampo(){
 function sortearAmigo() {
    
     if (listaDeAmigos.length < 2) {
-        alert("Adicione pelo menos dois amigos para o sorteio!"); 
+        peloMenosDois(); 
         return;
     }
 
