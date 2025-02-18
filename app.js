@@ -29,8 +29,8 @@ function adicionarAmigo() {
     atualizarLista();   
 }
 
-function exibirTextoNaTela(tag, texto){
-    let campo = document.getElementById('amigo');
+function exibirTextoNaTela(id, texto){
+    let campo = document.getElementById(id);
     campo.innerHTML = texto;
     if ('speechSynthesis' in window) {
         let utterance = new SpeechSynthesisUtterance(texto);
@@ -43,13 +43,13 @@ function exibirTextoNaTela(tag, texto){
 }
 
 function exibirMensagemNomeInvalido(){
-    exibirTextoNaTela('h2','Digite um nome válido, por favor!');
+    exibirTextoNaTela('amigo','Digite um nome válido, por favor!');
 }
 function exibirNomeEstaNaLista(){
-    exibirTextoNaTela('h2','O nome já está na lista, por favor digite outro nome!');
+    exibirTextoNaTela('amigo','O nome já está na lista, por favor digite outro nome!');
 }
 function peloMenosDois(){
-    exibirTextoNaTela('h2','Adicione pelo menos dois amigos para o sorteio!, por favor digite outro nome!');
+    exibirTextoNaTela('amigo','Adicione pelo menos dois amigos para o sorteio!, por favor digite outro nome!');
 }
  
  
