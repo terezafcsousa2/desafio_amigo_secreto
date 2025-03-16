@@ -1,32 +1,35 @@
-
 let listaDeAmigos = [];
 
-// Função para adicionar um amigo à lista
  
-function adicionarAmigo() {
+function adicionarAmigo(){
     
     let inputAmigo = document.getElementById('amigo');
     let amigo = inputAmigo.value.trim(); 
 
+    const mensagem = document.getElementById('mensagem');
     
     if (amigo === "") {
         exibirMensagemNomeInvalido();
-        return; 
+        
+        let mensagemErro = 'Digite um nome válido, por favor!';
+        mensagem.textContent = mensagemErro;
+        return;   
+         
     }else if (listaDeAmigos.includes(amigo)) 
     {
         exibirNomeEstaNaLista();
+        mensagem.textContent= 'O nome já está na lista! Por favor, digite outro nome!'
         limparCampo();
-        return;
+        return;        
+        
     }
 
     
     listaDeAmigos.push(amigo);
-    
-   
+    mensagem.textContent = 'Nome adicionado'
     inputAmigo.value = '';
 
- 
-    atualizarLista();   
+    atualizarLista();  
 }
 
 function exibirTextoNaTela(id, texto){
@@ -44,6 +47,7 @@ function exibirTextoNaTela(id, texto){
 
 function exibirMensagemNomeInvalido(){
     exibirTextoNaTela('amigo','Digite um nome válido, por favor!');
+    
 }
 function exibirNomeEstaNaLista(){
     exibirTextoNaTela('amigo','O nome já está na lista, por favor digite outro nome!');
@@ -57,7 +61,6 @@ function atualizarLista() {
    
     let listaElemento = document.getElementById('listaAmigos');
     
-    
     listaElemento.innerHTML = '';
 
     
@@ -67,6 +70,7 @@ function atualizarLista() {
         listaElemento.appendChild(li); 
     }
 }
+
 function limparCampo(){
     amigo = document.getElementById('amigo');
     amigo.value = '';
@@ -75,7 +79,8 @@ function limparCampo(){
 function sortearAmigo() {
    
     if (listaDeAmigos.length < 2) {
-        peloMenosDois(); 
+        peloMenosDois();
+        mensagem.textContent = 'Adicione pelo menos dois amigos para o sorteio, por favor digite outro nome!' 
         return;
     }
 
@@ -86,12 +91,16 @@ function sortearAmigo() {
     for (let i = 0; i < listaDeAmigos.length; i++) {
         if (i === indiceSorteado) {
             sorteado = listaDeAmigos[i];
+            
             break;
         }
     }
 
     document.getElementById('resultado').textContent = `O seu amigo oculto é: ${sorteado}`;
+    
+
 }
+
 
 
 
