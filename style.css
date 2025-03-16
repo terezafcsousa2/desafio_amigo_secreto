@@ -134,9 +134,18 @@ ul {
     margin: 20px 0;
 }
 
+.mensagem-erro{
+    margin-top: 15px;
+    color: #e55720;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
 .result-list {
     margin-top: 15px;
-    color: #05DF05;
+    color: #000099;;
     font-size: 22px;
     font-weight: bold;
     text-align: center;
