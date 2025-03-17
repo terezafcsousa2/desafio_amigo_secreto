@@ -67,8 +67,20 @@ function atualizarLista() {
     for (let i = 0; i < listaDeAmigos.length; i++) {
         let li = document.createElement('li'); 
         li.textContent = listaDeAmigos[i];
+
+        let botaoRemover = document.createElement('button');
+        botaoRemover.className = 'remover';
+        botaoRemover.textContent = 'Remover';
+        botaoRemover.onclick = () => removerNome(i);
+        li.appendChild(botaoRemover);
         listaElemento.appendChild(li); 
     }
+}
+
+function removerNome(i){
+    listaDeAmigos.splice(i,1);
+    mensagem.textContent= 'Nome removido';
+    atualizarLista();
 }
 
 function limparCampo(){
@@ -100,6 +112,10 @@ function sortearAmigo() {
     
 
 }
+
+
+
+
 
 
 
