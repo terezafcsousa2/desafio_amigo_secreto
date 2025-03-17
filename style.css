@@ -80,6 +80,7 @@ body {
 }
 
 .input-name {
+
     width: 100%;
     padding: 10px;
     border: 2px solid #000;
@@ -130,7 +131,7 @@ ul {
     list-style-type: none;
     color: var(--color-text);
     font-family: "Inter", sans-serif;
-    font-size: 18px;
+    font-size: 25px;
     margin: 20px 0;
 }
 
@@ -142,11 +143,36 @@ ul {
     text-align: center;
 
 }
+.name-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    color: #202de5;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    
+}
+
+.remover{
+    background-color: #e55720;
+    color: #F4F0EA;
+    padding: 2px 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.6em;
+    margin-left: 5px;
+    transition: background-color 0.3s ease;
+}
 
 .result-list {
     margin-top: 15px;
-    color: #000099;;
-    font-size: 22px;
+    color: #e55720;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
@@ -169,3 +195,6 @@ ul {
 .button-draw:hover {
     background-color: var(--color-button-hover);
 }
+
+
+
